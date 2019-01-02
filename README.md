@@ -1,2 +1,2 @@
-# docker-ubuntu-ci-build
-Automated image build for gitlab runner
+# docker-lg-code
+alpine based proxy for Amazon Echo to WebOS 3.x
