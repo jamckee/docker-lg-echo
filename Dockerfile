@@ -1,9 +1,14 @@
-# base in 16.04
-FROM ubuntu:16.04
+#Based from Alpine 3.7
+FROM alpine:3.7
 
-# apt-get and install tools
-RUN apt-get update
-RUN apt-get install -y make gcc g++ lcov freeglut3-dev git
+#Install needed apps
+RUN apk update
+RUN apk add --no-cache python git
 
-# remove apt files after installs
-RUN rm -rf /var/lib/apt/lists/*
+#Get project from github
+RUN git clone git clone https://github.com/akhan23wgu/amazon-alexa-lg-tv
+
+#Enable PIP
+RUN python -m ensurepip --default-pip
+RUN pip install -r /amazon-alexa-lg-tv/requirements.txt
+RUN pip install requests
